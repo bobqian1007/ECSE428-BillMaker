@@ -1,1 +1,1 @@
-web: java -jar billmaker-backend/build/libs/billmaker-0.0.1-SNAPSHOT.jar
+web: java -jar billmaker-backend/build/libs/billmaker-backend-0.0.1-SNAPSHOT.jar
