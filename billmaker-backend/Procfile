@@ -1,1 +1,1 @@
-web: java -jar EventRegistration-Backend/build/libs/demo-0.0.1-SNAPSHOT.jar
+web: java -jar EventRegistration-Backend/build/libs/billmaker-0.0.1-SNAPSHOT.jar
