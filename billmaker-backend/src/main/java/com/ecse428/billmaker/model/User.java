@@ -2,8 +2,12 @@ package com.ecse428.billmaker.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+
+
 
 @Entity
+@Table(name="BillUser")
 public abstract class User{
    private String username;
 
