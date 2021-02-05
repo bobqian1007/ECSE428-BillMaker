@@ -39,7 +39,6 @@ public class ID025_send_supervise_request {
         supervisionRequest.setId(0);
         supervisionRequest.setStatus(Boolean.FALSE);
         supervisionRequest.setSupervisorUser(supervisorUser1);
-        supervisionRequest.setIndividualUser(individualUser);
         Set<SupervisionRequest> newRequests = new HashSet<>();
         newRequests.add(supervisionRequest);
         supervisorUser1.setSupervisionRequests(newRequests);
@@ -50,6 +49,7 @@ public class ID025_send_supervise_request {
     public void the_other_user_receives_the_supervisor_s_request() {
 
         supervisionRequest.setStatus(Boolean.TRUE);
+        supervisionRequest.setIndividualUser(individualUser);
         Set<SupervisionRequest> newRequests = new HashSet<>();
         newRequests.add(supervisionRequest);
         individualUser.setSupervisionRequests(newRequests);
@@ -58,7 +58,7 @@ public class ID025_send_supervise_request {
 
     @Given("The other user is a supervisor user")
     public void the_other_user_is_a_supervisor_user() {
-        
+
         supervisorUser2 = new SupervisorUser();
 
     }
@@ -66,6 +66,7 @@ public class ID025_send_supervise_request {
     @Then("I shall be notified that the supervise request is not supported by the system")
     public void i_shall_be_notified_that_the_supervise_request_is_not_supported_by_the_system() {
 
+        supervisorUser1.getSupervisionRequests().remove(supervisionRequest);
         System.out.println("This supervise request is not supported by the system.");
 
     }
