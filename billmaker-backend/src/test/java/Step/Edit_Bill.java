@@ -12,6 +12,7 @@ public class Edit_Bill {
 
     Expense e;
     int amount = 10;
+    ExpenseService es = new ExpenseService();
 
     @Given("user is logged into the Bill management system as an indivudual user")
     public void user_is_logged_into_the_bill_management_system_as_an_indivudual_user() {
@@ -28,7 +29,7 @@ public class Edit_Bill {
 
     @When("user change the amount of the bill to a different amount")
     public void user_change_the_amount_of_the_bill_to_a_different_amount() {
-        e.setAmount(amount);
+        es.editBill(e, 10);
     }
 
     @When("user query the amount of the bill")
@@ -44,6 +45,11 @@ public class Edit_Bill {
     @When("user change the amount of the bill to a same amount")
     public void user_change_the_amount_of_the_bill_to_a_same_amount() {
         e.setAmount(e.getAmount());
+    }
+
+    @When("user change the amount of the bill to a negative amount")
+    public void user_change_the_amount_of_the_bill_to_a_negative_amount() {
+
     }
 
     @Then("the system notifies the user the amount should not be positive")

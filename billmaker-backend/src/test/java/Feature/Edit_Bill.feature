@@ -27,5 +27,5 @@ Scenario: Individual user change the amount of the bill to a negative amount (Er
 
   Given user is logged into the Bill management system as an indivudual user
   And there is a bill recorded in the system
-  When user change the amount of the bill to a same amount
+  When user change the amount of the bill to a negative amount
   Then the system notifies the user the amount should not be positive
