@@ -20,9 +20,8 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(Cucumber.class)
-@SpringBootTest
-public class CreateSupervisorUserTests {
+
+public class CreateSupervisorUserTests extends SpringIntegrationTest{
     @Autowired
     private BillMakerService service;
 
