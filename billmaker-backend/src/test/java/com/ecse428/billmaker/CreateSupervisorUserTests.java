@@ -31,9 +31,6 @@ public class CreateSupervisorUserTests extends SpringIntegrationTest{
     String errorMessage = "";
     List<String> usernames = new ArrayList<>();
 
-    @Before
-    public void deleteAll() { supervisorUserRepository.deleteAll(); }
-
     @After
     public void clearDatabase() {
         errorMessage = "";

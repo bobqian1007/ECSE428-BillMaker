@@ -26,11 +26,6 @@ public class CreateIndividualUserTests extends SpringIntegrationTest{
     String errorMessage = "";
     List<String> usernames = new ArrayList<>();
 
-    @Before
-    public void deleteAll(){
-        individualUserRepository.deleteAll();
-    }
-
     @After
     public void clearDatabase() {
         errorMessage = "";
