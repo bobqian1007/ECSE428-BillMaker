@@ -1,8 +1,8 @@
-Feature: Create Individual User
+Feature: Create Supervisor User
 
-  As an individual user
-  I would like to create a new individual account
-  So that I can login as an individual user
+  As an supervisor user
+  I would like to create a new supervisor account
+  So that I can login as a supervisor user
 
   Scenario Outline: Create A Valid Supervisor User Account (Normal Flow)
     When the username "<user_name>" and password "<password>" and email "<email>" are entered
@@ -35,7 +35,6 @@ Feature: Create Individual User
       | Abby      | 3001old  | 123@mail.com | Abby       | sfvn1224  | 321@mail.com |
       | Bob       | 645aer   | 456@mail.com | Bob        | 6DAD334   | 654@mail.com |
       | Cindy     | bb19AS2  | 789@mail.com | Cindy      | FDEAce12  | 987@mail.com |
-
 
 
 

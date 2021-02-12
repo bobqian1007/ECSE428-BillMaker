@@ -4,5 +4,6 @@ import com.ecse428.billmaker.model.IndividualUser;
 import org.springframework.data.repository.CrudRepository;
 
 public interface IndividualUserRepository extends CrudRepository<IndividualUser, String> {
-        IndividualUser findByUserName(String username);
+    IndividualUser findByUsername(String username);
+    void deleteByUsername(String username);
 }
