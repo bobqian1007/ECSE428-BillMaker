@@ -1,4 +1,4 @@
-package com.ecse428.billmaker.Service;
+package com.ecse428.billmaker.service;
 
 import com.ecse428.billmaker.dao.ExpenseRepository;
 import com.ecse428.billmaker.model.Expense;
