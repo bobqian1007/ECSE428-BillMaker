@@ -2,7 +2,6 @@ package com.ecse428.billmaker.service;
 
 import com.ecse428.billmaker.dao.ExpenseRepository;
 import com.ecse428.billmaker.dao.IndividualUserRepository;
-import com.ecse428.billmaker.dao.TransactionRepository;
 import com.ecse428.billmaker.model.Category;
 import com.ecse428.billmaker.model.Expense;
 import com.ecse428.billmaker.model.IndividualUser;
@@ -18,13 +17,13 @@ import java.util.Set;
 @Service
 public class ExpenseService {
     @Autowired
-    IndividualUserRepository individualUserRepository;
+    private IndividualUserRepository individualUserRepository;
     @Autowired
-    ExpenseRepository expenseRepository;
+    private ExpenseRepository expenseRepository;
 
     @Transactional
     public Expense createExpense(int id, double amount, String location, String individualUserName, Date date, String description, Set<Category> categories) {
-        IndividualUser individualUser = individualUserRepository.findByUserName(individualUserName);
+        IndividualUser individualUser = individualUserRepository.findByUsername(individualUserName);
         if (individualUser == null) {
             throw new NullPointerException("No such individual user!");
         }
@@ -53,6 +52,16 @@ public class ExpenseService {
     @Transactional
     public List<Expense> getAllExpenses() {
         return toList(expenseRepository.findAll());
+    }
+
+    @Transactional
+    public boolean delete(int id) {
+        Expense expense = expenseRepository.findExpenseById(id);
+        if (expense == null) {
+            throw new NullPointerException("Record not exists");
+        }
+        expenseRepository.delete(expense);
+        return true;
     }
 
     private <T> List<T> toList(Iterable<T> iterable) {
