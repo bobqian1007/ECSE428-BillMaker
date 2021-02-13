@@ -71,4 +71,13 @@ public class ExpenseService {
         }
         return resultList;
     }
+
+    @Transactional
+    public Expense editBill(Expense e, int amount) {
+        if (amount<0){
+            throw new IllegalArgumentException("Bill amount cannot be 0!");
+        }
+        else e.setAmount(amount);
+        return e;
+    }
 }
