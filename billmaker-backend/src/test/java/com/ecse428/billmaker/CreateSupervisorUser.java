@@ -21,7 +21,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 
-public class CreateSupervisorUserTests extends SpringIntegrationTest{
+public class CreateSupervisorUser extends SpringIntegrationTest{
     @Autowired
     private BillMakerService service;
 

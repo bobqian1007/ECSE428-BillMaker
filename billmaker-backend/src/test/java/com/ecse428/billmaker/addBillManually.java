@@ -24,7 +24,7 @@ import static org.junit.Assert.assertTrue;
 
 import javax.swing.*;
 
-public class addBillManuallyTest extends SpringIntegrationTest {
+public class addBillManually extends SpringIntegrationTest {
 
     String errorMessage = "";
 

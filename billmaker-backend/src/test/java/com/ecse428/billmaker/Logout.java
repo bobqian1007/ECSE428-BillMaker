@@ -22,7 +22,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 
-public class LogoutTests extends SpringIntegrationTest{
+public class Logout extends SpringIntegrationTest{
     @Autowired
     private BillMakerService service;
 

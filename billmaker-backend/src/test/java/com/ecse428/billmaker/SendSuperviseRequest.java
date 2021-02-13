@@ -11,7 +11,7 @@ import com.ecse428.billmaker.model.IndividualUser;
 import java.util.HashSet;
 import java.util.Set;
 
-public class SendSuperviseRequestTests {
+public class SendSuperviseRequest {
 
     private static IndividualUser individualUser;
     private static SupervisorUser supervisorUser1;
