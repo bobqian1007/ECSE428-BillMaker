@@ -1,5 +1,6 @@
 package com.ecse428.billmaker.service;
 
+
 import com.ecse428.billmaker.dao.ExpenseRepository;
 import com.ecse428.billmaker.dao.IndividualUserRepository;
 import com.ecse428.billmaker.model.Category;
@@ -27,6 +28,11 @@ public class ExpenseService {
         if (individualUser == null) {
             throw new NullPointerException("No such individual user");
         }
+
+        if (amount < 0){
+            throw new NullPointerException("Amount cannot be negative!");
+        }
+
         Expense expense = new Expense();
         expense.setId(id);
         expense.setAmount(amount);
@@ -81,3 +87,4 @@ public class ExpenseService {
         return e;
     }
 }
+
