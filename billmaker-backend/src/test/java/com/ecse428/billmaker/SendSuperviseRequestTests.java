@@ -1,4 +1,4 @@
-package stepdefinitions;
+package com.ecse428.billmaker;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,7 +11,7 @@ import com.ecse428.billmaker.model.IndividualUser;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ID025_send_supervise_request {
+public class SendSuperviseRequestTests {
 
     private static IndividualUser individualUser;
     private static SupervisorUser supervisorUser1;
