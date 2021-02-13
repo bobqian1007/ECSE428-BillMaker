@@ -12,6 +12,26 @@ import org.springframework.transaction.annotation.Transactional;
 public class BillMakerService {
     @Autowired
     private SupervisorUserRepository supervisorUserRepository;
+    private static User currentlyLoggedIn = null;
+
+    @Transactional
+    public static void login(User user) {
+        //already someone logged in
+        currentlyLoggedIn = user;
+    }
+
+    @Transactional
+    public static void logout(){
+        if (currentlyLoggedIn == null) {
+            throw new IllegalStateException("There is no one logged in!");
+        }
+        currentlyLoggedIn = null;
+    }
+
+    @Transactional
+    public static User getUser() {
+        return currentlyLoggedIn;
+    }
 
     @Autowired
     private IndividualUserRepository individualUserRepository;

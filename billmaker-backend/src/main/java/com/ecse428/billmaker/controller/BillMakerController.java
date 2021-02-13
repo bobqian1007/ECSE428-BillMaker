@@ -42,6 +42,11 @@ public class BillMakerController {
         return convertToDto(supervisorUser);
     }
 
+    @PostMapping(value = ("/logout"))
+    void logout() {
+        BillMakerService.logout();
+    }
+
 
     SupervisorUserDto convertToDto(SupervisorUser su) {
         if (su == null) {
