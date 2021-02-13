@@ -6,11 +6,12 @@ import com.ecse428.billmaker.model.Category;
 import com.ecse428.billmaker.model.Expense;
 import com.ecse428.billmaker.service.BillMakerService;
 import com.ecse428.billmaker.service.ExpenseService;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.After;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Date;
@@ -19,6 +20,7 @@ import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class DeletePreviousBillTests extends SpringIntegrationTest{
 
@@ -34,11 +36,24 @@ public class DeletePreviousBillTests extends SpringIntegrationTest{
     @Autowired
     private IndividualUserRepository individualUserRepository;
 
-
     @Deprecated
-    private Date date = new Date(3921, 3, 12);
+    private Date date = new Date(121, 1, 12);
     private String errorMessage = "";
-    private static List<Expense> expenses;
+    private List<Expense> expenses;
+
+    @Before
+    public void setup() {
+        billMakerService.createIndividualUser("Alex", "abc", "Alex@gmail.com");
+        Set<Category> categories = new HashSet<>();
+        Category Food = new Category();
+        categories.add(Food);
+        try {
+            expenseService.createExpense(0, 50.0, "Provigo", "Alex", date, "for lunch", categories);
+            expenseService.createExpense(1, 100.0, "Metro", "Alex", date, "for dinner", categories);
+        } catch(NullPointerException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     @After
     public void clearDatabase() {
@@ -49,18 +64,13 @@ public class DeletePreviousBillTests extends SpringIntegrationTest{
 
     @Given("I logged in as an individual user")
     public void iLoggedInAsAnIndividualUser() {
-        billMakerService.createIndividualUser("Alex", "abc", "Alex@gmail.com");
-        Set<Category> categories = new HashSet<>();
-        Category Food = new Category();
-        categories.add(Food);
-        expenseService.createExpense(0, 50.0, "Provigo", "Alex", date, "for lunch", categories);
-        expenseService.createExpense(1, 100.0, "Metro", "Alex", date, "for dinner", categories);
+        // this should be implemented after login function is done
     }
 
     @When("I delete a bill record with a bill id")
     public void iDeleteABillRecordWithABillId() {
         try {
-            expenseService.delete(0);
+            assertTrue(expenseService.delete(0));
         }
         catch(NullPointerException e) {
             System.out.println(e.getMessage());
@@ -77,7 +87,7 @@ public class DeletePreviousBillTests extends SpringIntegrationTest{
         try {
             assert !expenses.contains(expenseService.getExpenseById(0));
         }
-        catch(Exception e) {
+        catch(NullPointerException e) {
             System.out.println(e.getMessage());
         }
     }
@@ -85,9 +95,9 @@ public class DeletePreviousBillTests extends SpringIntegrationTest{
     @When("I delete a bill record at a time with a shop name")
     public void iDeleteABillRecordAtATimeWithAShopName() {
         try {
-            expenseService.delete(expenseService.getExpenseByLocation("Provigo").getId());
+            assertTrue(expenseService.delete(expenseService.getExpenseByLocation("Provigo").getId()));
         }
-        catch(Exception e) {
+        catch(NullPointerException e) {
             System.out.println(e.getMessage());
         }
     }
@@ -97,7 +107,7 @@ public class DeletePreviousBillTests extends SpringIntegrationTest{
         try {
             expenseService.delete(expenseService.getExpenseByLocation("IGA").getId());
         }
-        catch(Exception e) {
+        catch(NullPointerException e) {
             errorMessage = errorMessage + "Record not exists";
         }
     }

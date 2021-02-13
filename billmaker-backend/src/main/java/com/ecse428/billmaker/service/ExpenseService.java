@@ -25,7 +25,7 @@ public class ExpenseService {
     public Expense createExpense(int id, double amount, String location, String individualUserName, Date date, String description, Set<Category> categories) {
         IndividualUser individualUser = individualUserRepository.findByUsername(individualUserName);
         if (individualUser == null) {
-            throw new NullPointerException("No such individual user!");
+            throw new NullPointerException("No such individual user");
         }
         Expense expense = new Expense();
         expense.setId(id);
