@@ -30,14 +30,3 @@ Feature: User Login
     Examples:
       | UserID   | Password   | State |
       | UserAcct | MyPassword | Error |
-
-
-  Scenario Outline: Individual User Login when UserID and Password both does not exist (Error Flow)
-    Given the system is running
-    When submitting the username <UserID> and password <Password> to login
-    Then the returned message is <State>
-    And my account type is not individual user
-    Examples:
-
-      | UserID   | Password   | State |
-      | UserAcct | MyPassword | Error |
