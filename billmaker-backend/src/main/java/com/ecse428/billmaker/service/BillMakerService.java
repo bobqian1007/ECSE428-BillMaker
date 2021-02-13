@@ -4,6 +4,7 @@ import com.ecse428.billmaker.dao.IndividualUserRepository;
 import com.ecse428.billmaker.dao.SupervisorUserRepository;
 import com.ecse428.billmaker.model.SupervisorUser;
 import com.ecse428.billmaker.model.IndividualUser;
+import com.ecse428.billmaker.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
