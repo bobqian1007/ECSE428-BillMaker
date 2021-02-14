@@ -2,10 +2,7 @@ package com.ecse428.billmaker.config;
 
 
 
-import com.ecse428.billmaker.auth.SimpleAccessDeniedHandler;
-import com.ecse428.billmaker.auth.SimpleAuthenticationEntryPoint;
-import com.ecse428.billmaker.auth.SimpleAuthenticationFailureHandler;
-import com.ecse428.billmaker.auth.SimpleAuthenticationSuccessHandler;
+import com.ecse428.billmaker.auth.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -66,9 +63,14 @@ import com.ecse428.billmaker.service.UserDetailsServiceImpl;
     }
 
     @Bean
+    public PasswordEncoder passwordEncoder(){
+        return new PasswordEnconderTest();
+    }
+    /*
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
-    }
+    }*/
+
 
     @Autowired
     public void configure(AuthenticationManagerBuilder auth) throws Exception{
