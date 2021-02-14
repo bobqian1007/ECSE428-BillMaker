@@ -26,7 +26,7 @@ import java.io.IOException;
 
 import static org.junit.Assert.*;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+//@RunWith(SpringJUnit4ClassRunner.class)
 public class ID002_individual_user_login {
     @Autowired
     JdbcTemplate jdbcTemplate;
@@ -36,15 +36,6 @@ public class ID002_individual_user_login {
 
     String email = new String();
     String status = new String();
-
-    @Before
-    public void waitBeforeFirstStart() {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
 
     @Given("I have a user {string} with password {string}")
     public void iHaveAUserUserIDWithPasswordPassword(String id, String pw) {
