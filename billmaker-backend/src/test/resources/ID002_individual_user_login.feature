@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-Feature: User Login
-=======
 Feature: Individual User Login
->>>>>>> user-login
 
   As a individual user
   I would like to login to the household accountbook system with username and password

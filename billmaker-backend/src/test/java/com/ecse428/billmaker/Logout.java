@@ -44,9 +44,9 @@ public class Logout extends SpringIntegrationTest{
     }
 
     @Given("I am logged into the Bill Management System as an individual user")
-    public void IAmLoggedIntoTheBillManagementSystemAsAnIndividualUser(User user) {
+    public void IAmLoggedIntoTheBillManagementSystemAsAnIndividualUser() {
         try {
-            BillMakerService.login(user);
+            BillMakerService.login();
         } catch (IllegalArgumentException e) {
             errorMessage = e.getMessage();
         }
@@ -65,7 +65,7 @@ public class Logout extends SpringIntegrationTest{
     public void ICanNoLongerAccessMyAccount() {
         assertEquals("", errorMessage);
 
-        assertEquals(null, BillMakerService.getUser());
+        assertEquals(false, BillMakerService.getUser());
     }
 
     @Given("I am not logged into the Bill Management System")

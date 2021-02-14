@@ -26,7 +26,6 @@ import java.io.IOException;
 
 import static org.junit.Assert.*;
 
-@RunWith(SpringJUnit4ClassRunner.class)
 public class ID002_individual_user_login {
     @Autowired
     JdbcTemplate jdbcTemplate;
