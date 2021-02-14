@@ -77,44 +77,9 @@ public class LogoutTests extends SpringIntegrationTest{
         }
     }
 
+
     @Then("the system will display the {string} error message")
     public void theSystemWillDisplayTheErrorMessage(String error) {
         assertEquals(errorMessage, error);
     }
-
-    @When("the username {string} and password {string} and email {string} are entered")
-    public void theUsernameAndPasswordAndEmailAreEntered(String name, String password, String email) {
-        try {
-            service.createSupervisorUser(name, password, email);
-            usernames.add(name);
-        } catch (IllegalArgumentException e) {
-            errorMessage = e.getMessage();
-        }
-    }
-
-    @Then("a supervisor account is created with username {string} and password {string} and email {string}")
-    public void aSupervisorAccountIsCreatedWithUsernameAndPasswordAndEmail(String name, String password, String email) {
-        assertEquals("", errorMessage);
-
-        SupervisorUser temp = service.getSupervisorUser(name);
-        assertEquals(name, temp.getUsername());
-        assertEquals(password, temp.getPassword());
-        assertEquals(email, temp.getEmail());
-    }
-
-    @Given("a supervisor user has been created with username {string} and password {string} and email {string}")
-    public void aSupervisorUserHasBeenCreatedWithUsernameAndPasswordAndEmail(String name, String password, String email) {
-        try {
-            service.createSupervisorUser(name, password, email);
-            usernames.add(name);
-        } catch (IllegalArgumentException e) {
-            errorMessage = e.getMessage();
-        }
-    }
-
-    @Then("the error message {string} is returned")
-    public void theErrorMessageIsReturned(String error) {
-        assertEquals(error, errorMessage);
-    }
-
 }
