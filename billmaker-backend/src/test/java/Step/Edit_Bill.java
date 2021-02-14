@@ -1,8 +1,7 @@
 package Step;
 import com.ecse428.billmaker.model.*;
-import com.ecse428.billmaker.Service.*;
+import com.ecse428.billmaker.service.*;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
