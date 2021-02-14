@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="$PROJECT_DIR$/billmaker-backend/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/BillMakerBackendApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/auth/PasswordEncoderTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/config/WebSecurityConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/controller/BillMakerController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/dao/LoginUserDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/dao/UserDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/entity/LoginUser.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/model/myUser.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/repository/LoginUserDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/repository/UserDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/repository/UserDaoJdbcImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/repository/UserRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/service/UserDetailsServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/service/UserService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/java/Feature/ID002_individual_user_login.feature">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/java/Step/Edit_Bill.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/java/Step/ID002_individual_user_login.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/java/Step/LoginStepTests.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/java/com/ecse428/billmaker/CreateSupervisorUserTests.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/java/com/ecse428/billmaker/test/HttpRequest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/java/com/ecse428/billmaker/test/ID002_individual_user_login.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/java/com/ecse428/billmaker/test/SpringSecurityWebAuxTestConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/resources/ID002.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/resources/ID002_individual_user_login.feature">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/resources/MyStepdefs.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

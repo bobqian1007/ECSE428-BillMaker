@@ -13,24 +13,24 @@ import org.springframework.transaction.annotation.Transactional;
 public class BillMakerService {
     @Autowired
     private SupervisorUserRepository supervisorUserRepository;
-    private static User currentlyLoggedIn = null;
+    private static boolean currentlyLoggedIn = false;
 
     @Transactional
-    public static void login(User user) {
+    public static void login() {
         //already someone logged in
-        currentlyLoggedIn = user;
+        currentlyLoggedIn = true;
     }
 
     @Transactional
     public static void logout(){
-        if (currentlyLoggedIn == null) {
+        if (currentlyLoggedIn == false) {
             throw new IllegalStateException("There is no one logged in!");
         }
-        currentlyLoggedIn = null;
+        currentlyLoggedIn = false;
     }
 
     @Transactional
-    public static User getUser() {
+    public static boolean getUser() {
         return currentlyLoggedIn;
     }
 

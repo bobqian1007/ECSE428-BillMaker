@@ -39,11 +39,11 @@ public class addBillManually extends SpringIntegrationTest {
 
     @Autowired
     private IndividualUserRepository individualUserRepository;
-
+/*
     @Before
     public void deleteAll() {
         individualUserRepository.deleteAll();
-    }
+    }*/
 
     @After
     public void clearDatabase() {
@@ -63,6 +63,8 @@ public class addBillManually extends SpringIntegrationTest {
             Set<Category> categories = new HashSet<>();
             Category Food = new Category();
             categories.add(Food);
+
+            billMakerService.createIndividualUser(individualUserName, "asd", "asdasd");
             expenseService.createExpense(id, amount, location, individualUserName, date, description, categories);
 
         } catch (NullPointerException e) {
@@ -74,7 +76,7 @@ public class addBillManually extends SpringIntegrationTest {
     public void user_could_find_this_bill_under_bill_section() {
         try {
             Expense expense = expenseService.getExpenseById(1);
-            assertEquals(expense.getIndividualUser(),"YIBO");
+            assertEquals(expense.getIndividualUser().getUsername(),"YIBO");
         } catch (NullPointerException e) {
             System.out.println(e.getMessage());
         }
@@ -92,6 +94,8 @@ public class addBillManually extends SpringIntegrationTest {
             Set<Category> categories = new HashSet<>();
             Category Food = new Category();
             categories.add(Food);
+
+            billMakerService.createIndividualUser(individualUserName, "asd", "asdasd");
             expenseService.createExpense(id, amount, location, individualUserName, date, description, categories);
 
         } catch (NullPointerException e) {
