@@ -26,6 +26,7 @@ dependencies {
 	testImplementation 'io.cucumber:cucumber-spring:6.8.1'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+	testCompile 'org.apache.httpcomponents:httpclient:4.5.13'
 	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 	testCompileOnly 'junit:junit:4.13'
 	testRuntimeOnly 'org.junit.vintage:junit-vintage-engine'

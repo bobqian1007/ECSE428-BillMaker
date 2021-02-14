@@ -78,6 +78,61 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/java/Feature/ID002_individual_user_login.feature">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/java/Step/Edit_Bill.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/java/Step/ID002_individual_user_login.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/java/Step/LoginStepTests.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/java/com/ecse428/billmaker/CreateSupervisorUserTests.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/java/com/ecse428/billmaker/test/HttpRequest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/java/com/ecse428/billmaker/test/ID002_individual_user_login.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/java/com/ecse428/billmaker/test/SpringSecurityWebAuxTestConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/resources/ID002.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/resources/ID002_individual_user_login.feature">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/test/resources/MyStepdefs.java">
+          <value>
+            <set />
+          </value>
+        </entry>
       </map>
     </option>
   </component>
