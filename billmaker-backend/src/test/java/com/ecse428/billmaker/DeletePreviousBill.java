@@ -41,8 +41,15 @@ public class DeletePreviousBill extends SpringIntegrationTest{
     private String errorMessage = "";
     private List<Expense> expenses;
 
-    @Before
-    public void setup() {
+    @After
+    public void clearDatabase() {
+        errorMessage = "";
+        individualUserRepository.deleteAll();
+        expenseRepository.deleteAll();
+    }
+
+    @Given("I logged in as an individual user")
+    public void iLoggedInAsAnIndividualUser() {
         billMakerService.createIndividualUser("Alex", "abc", "Alex@gmail.com");
         Set<Category> categories = new HashSet<>();
         Category Food = new Category();
@@ -53,18 +60,6 @@ public class DeletePreviousBill extends SpringIntegrationTest{
         } catch(NullPointerException e) {
             System.out.println(e.getMessage());
         }
-    }
-
-    @After
-    public void clearDatabase() {
-        errorMessage = "";
-        individualUserRepository.deleteAll();
-        expenseRepository.deleteAll();
-    }
-
-    @Given("I logged in as an individual user")
-    public void iLoggedInAsAnIndividualUser() {
-        // this should be implemented after login function is done
     }
 
     @When("I delete a bill record with a bill id")
