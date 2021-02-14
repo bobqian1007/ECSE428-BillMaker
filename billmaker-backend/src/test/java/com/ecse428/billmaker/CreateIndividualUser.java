@@ -26,6 +26,7 @@ public class CreateIndividualUser extends SpringIntegrationTest{
     String errorMessage = "";
     List<String> usernames = new ArrayList<>();
 
+    /*
     @After
     public void clearDatabase() {
         errorMessage = "";
@@ -33,7 +34,7 @@ public class CreateIndividualUser extends SpringIntegrationTest{
         while (usernames.size() != 0) {
             individualUserRepository.delete(individualUserRepository.findById(usernames.remove(0)).get());
         }
-    }
+    }*/
 
     @When("the individual username {string} and password {string} and email {string} are entered")
     public void theIndividualUsernameAndPasswordAndEmailAreEntered(String username, String password, String email) {
