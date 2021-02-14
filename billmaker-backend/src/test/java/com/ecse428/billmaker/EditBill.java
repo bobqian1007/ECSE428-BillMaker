@@ -2,7 +2,6 @@ package com.ecse428.billmaker;
 import com.ecse428.billmaker.model.*;
 import com.ecse428.billmaker.service.*;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
