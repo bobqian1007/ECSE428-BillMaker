@@ -3,7 +3,72 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="$PROJECT_DIR$/billmaker-backend/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/BillMakerBackendApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/config/WebSecurityConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/controller/BillMakerController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/dao/LoginUserDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/dao/UserDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/entity/LoginUser.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/model/myUser.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/repository/LoginUserDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/repository/UserDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/repository/UserDaoJdbcImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/repository/UserRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/service/UserDetailsServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/billmaker-backend/src/main/java/com/ecse428/billmaker/service/UserService.java">
           <value>
             <set />
           </value>
