@@ -6,7 +6,6 @@ Feature: Approve Supervisor Request
 
   Background:
     Given I have an account
-    And I have no supervisor
     And The supervisor has an account
     And the supervisor has sent a supervise request to me
 
@@ -22,7 +21,8 @@ Feature: Approve Supervisor Request
 
 
   Scenario: User in family account accept the second supervisor request
-    When I approve the the supervise request
+    When Another supervisor sent request to me
+    When I approve the the second supervise request
     Then I shall be notified that each user can not have two supervisor
 
 
