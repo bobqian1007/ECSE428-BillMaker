@@ -4,6 +4,7 @@ import com.ecse428.billmaker.dao.IndividualUserRepository;
 import com.ecse428.billmaker.dao.SupervisorUserRepository;
 import com.ecse428.billmaker.model.SupervisorUser;
 import com.ecse428.billmaker.model.IndividualUser;
+import com.ecse428.billmaker.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,6 +13,26 @@ import org.springframework.transaction.annotation.Transactional;
 public class BillMakerService {
     @Autowired
     private SupervisorUserRepository supervisorUserRepository;
+    private static boolean currentlyLoggedIn = false;
+
+    @Transactional
+    public static void login() {
+        //already someone logged in
+        currentlyLoggedIn = true;
+    }
+
+    @Transactional
+    public static void logout(){
+        if (currentlyLoggedIn == false) {
+            throw new IllegalStateException("There is no one logged in!");
+        }
+        currentlyLoggedIn = false;
+    }
+
+    @Transactional
+    public static boolean getUser() {
+        return currentlyLoggedIn;
+    }
 
     @Autowired
     private IndividualUserRepository individualUserRepository;

@@ -1,12 +1,10 @@
 package com.ecse428.billmaker.dao;
+
+import com.ecse428.billmaker.model.Expense;
 import org.springframework.data.repository.CrudRepository;
-import com.ecse428.billmaker.model.*;
 
-import java.util.Optional;
+public interface ExpenseRepository extends CrudRepository<Expense, String> {
 
-
-public interface ExpenseRepository extends CrudRepository<Expense, Integer> {
-
-
+    Expense findExpenseById(int id);
+    Expense findExpenseByLocation(String location);
 }
-
