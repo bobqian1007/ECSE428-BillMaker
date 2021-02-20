@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BillMaker</string>
+    <string name="login_username">Username</string>
+    <string name="login_password">Password</string>
+    <string name="login_submit">Submit</string>
+    <string name="login_as_supervisor">Login as Supervisor</string>
+    <string name="login_supervisor">Supervisor Login</string>
+    <string name="login_user">User Login</string>
+</resources>
