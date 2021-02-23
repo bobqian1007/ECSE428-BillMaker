@@ -23,6 +23,7 @@ public class BillMakerController {
 
     @Autowired
     BillMakerService service;
+    
 
     @PostMapping(value = {"/createIndividualUser","/createIndividualUser/"})
     IndividualUserDto createIndividualUser(@RequestParam("username") String username,
@@ -37,7 +38,7 @@ public class BillMakerController {
         if (iu == null){
             return null;
         }
-        return new IndividualUserDto(iu.getUsername(), iu.getPassword(), iu.getEmail());
+        return new IndividualUserDto(iu.getUsername(), iu.getPassword(), iu.getEmail(),iu.getMonthlyLimit());
     }
 
     @PostMapping(value = {"/supervisor/{username}", "/supervisor/{username}/"})
@@ -61,7 +62,16 @@ public class BillMakerController {
 
         return new SupervisorUserDto(su.getUsername(), su.getPassword(), su.getEmail());
     }
-
+    @GetMapping(value = "/individualuser/rmlt/{username}")
+    public IndividualUserDto removeMonthlimit(@PathVariable("username") String username){
+        IndividualUser user;
+    	try {
+        	user = userService.removeMonthLimit(username);
+        }catch(Exception e) {
+        	user = null;
+        }
+    	return convertToDto(user);
+    }
 
     /**
      * User Login Related

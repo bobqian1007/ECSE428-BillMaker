@@ -1,4 +1,4 @@
-package com.ecse428.billmaker.test;
+package com.ecse428.billmaker;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;

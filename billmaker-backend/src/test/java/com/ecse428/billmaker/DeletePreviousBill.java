@@ -40,14 +40,14 @@ public class DeletePreviousBill extends SpringIntegrationTest{
     private Date date = new Date(121, 1, 12);
     private String errorMessage = "";
     private List<Expense> expenses;
-
+    
     @After
     public void clearDatabase() {
         errorMessage = "";
         individualUserRepository.deleteAll();
         expenseRepository.deleteAll();
     }
-
+	
     @Given("I logged in as an individual user")
     public void iLoggedInAsAnIndividualUser() {
         billMakerService.createIndividualUser("Alex", "abc", "Alex@gmail.com");
