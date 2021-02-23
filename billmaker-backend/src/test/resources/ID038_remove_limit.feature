@@ -5,7 +5,7 @@ Feature: remove limit
   So that I can buy goods as much as I want every month.
 
   Background:
-    Given I logged in as an individual user
+    Given I have a account
 
   Scenario: Remove the account limit (Normal Flow)
     Given I have account limit
