@@ -16,7 +16,7 @@ Feature: Individual User changes password
 
     Given I have a user "<UserID>" with password "<Password>" and email "<Email>"
     And I have a user "<UserID1>" with password "<DifferentPassword>" and email "<Email1>"
-    When I change the password "<DifferentPassword>" to a new password "<NewPassword>"
+    When I change the old password "<DifferentPassword>" to a new password "<NewPassword>"
     Then the user password is now "<NewPassword>"
     Examples:
       | UserID   | Password   | Email          | UserID1   | DifferentPassword   | Email1          | NewPassword |
@@ -26,7 +26,7 @@ Feature: Individual User changes password
 
     Given I have a user "<UserID>" with password "<PreviousPassword>" and email "<Email>"
     When I change the old password "<PreviousPassword>" to a new password "<NewPassword>"
-    Then the error message "Password contains invalid character" is returned
+    Then the password is not changed
     Examples:
       | UserID   | PreviousPassword  | Email           | NewPassword    |
       | UserAcct | previousPassword  | email@demo.com  | new pass word  |
