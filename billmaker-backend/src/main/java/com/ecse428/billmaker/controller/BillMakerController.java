@@ -91,4 +91,15 @@ public class BillMakerController {
         List<myUser> userList = userService.selectMany();
         return new Gson().toJson(userList);
     }
+
+    @PostMapping("/user/changePwd")
+    public IndividualUserDto changePwd(String username, String password) {
+        IndividualUser user;
+        try {
+            user = userService.changePwd(username, password);
+        }catch(Exception e) {
+            user = null;
+        }
+        return convertToDto(user);
+    }
 }

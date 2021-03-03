@@ -48,6 +48,13 @@ public class UserService {
     	IndividualUser user = idr.findByUsername(name);
     	return user.getMonthlyLimit(); 	
     }
+
+    @Transactional
+    public IndividualUser changePwd(String username, String password) {
+        IndividualUser user = idr.findByUsername(username);
+        user.setPassword(password);
+        return user;
+    }
     
 
 }
