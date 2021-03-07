@@ -66,12 +66,13 @@ public class BillMakerService {
     }
 
     @Transactional
-    public void updateSupervisorUserEmail(String username, String email) {
+    public SupervisorUser updateSupervisorUserEmail(String username, String email) {
         SupervisorUser supervisorUser = supervisorUserRepository.findByUsername(username);
         if (supervisorUser.getEmail().equals(email)) {
             throw new IllegalArgumentException("Email already exists");
         }
         supervisorUser.setEmail(email);
+        return supervisorUser;
     }
 
     @Transactional

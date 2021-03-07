@@ -7,7 +7,7 @@ Feature: Supervisor changes email address
 
     Given I have a supervisor account "<UserID>" with password "<Password>" and email "<PreviousEmail>"
     When I change the supervisor email "<PreviousEmail>" to the new email address "<NewEmail>"
-    Then the user email address is now "<NewEmail>"
+    Then the supervisor user email address is now "<NewEmail>"
     Examples:
       | UserID   | Password   | PreviousEmail           | NewEmail |
       | UserAcct | MyPassword | previousEmail@demo.com  | newEmail@demo.com |
@@ -17,9 +17,9 @@ Feature: Supervisor changes email address
 
     Given I have a supervisor account "<UserID>" with password "<Password>" and email "<PreviousEmail>"
     When I change the supervisor email "<PreviousEmail>" to the new email address "<FirstEmail>"
-    Then the user email address is now "<FirstEmail>"
+    Then the supervisor user email address is now "<FirstEmail>"
     When I change the supervisor email "<FirstEmail>" to the new email address "<SecondEmail>"
-    Then the user email address is now "<SecondEmail>"
+    Then the supervisor user email address is now "<SecondEmail>"
     Examples:
       | UserID   | Password   | PreviousEmail          | FirstEmail          | SecondEmail          |
       | UserAcct | MyPassword | previousEmail@demo.com | firstEmail@demo.com | secondEmail@demo.com |

@@ -23,8 +23,7 @@ public class SupervisorUserChangesEmailAddress extends SpringIntegrationTest {
 
     @Given("I have a supervisor account {string} with password {string} and email {string}")
     public void iAmAUserWithPasswordAndEmail(String arg0, String arg1, String arg2) {
-        billMakerService.createSupervisorUser(arg0, arg1, arg2);
-        supervisorUser = billMakerService.getSupervisorUser(arg0);
+        supervisorUser = billMakerService.createSupervisorUser(arg0, arg1, arg2);
     }
 
     @When("I change the supervisor email {string} to the new email address {string}")
@@ -36,15 +35,24 @@ public class SupervisorUserChangesEmailAddress extends SpringIntegrationTest {
             System.out.println(errorMessage);
         }
         try {
-            billMakerService.updateSupervisorUserEmail(supervisorUser.getUsername(), arg1);
+            supervisorUser = billMakerService.updateSupervisorUserEmail(supervisorUser.getUsername(), arg1);
         } catch (IllegalArgumentException e) {
             errorMessage = e.getMessage();
         }
     }
 
+    @Then("the supervisor user email address is now {string}")
+    public void theSupervisorUserEmailAddressIsNow(String arg0) {
+        try {
+            assert supervisorUser.getEmail().equals(arg0);
+        } catch (Exception e){
+            errorMessage = errorMessage + "Email addresses mismatch";
+        }
+    }
 
     @Then("the error message {string} is returned for change supervisor user email address")
     public void theErrorMessageIsReturnedForChangeSupervisorUserEmailAddress(String arg0) {
         assertEquals(arg0, errorMessage);
     }
+
 }
