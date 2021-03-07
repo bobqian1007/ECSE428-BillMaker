@@ -56,12 +56,13 @@ public class BillMakerService {
     }
 
     @Transactional
-    public void updateIndividualUserEmail(String username, String email) {
+    public IndividualUser updateIndividualUserEmail(String username, String email) {
         IndividualUser individualUser = individualUserRepository.findByUsername(username);
         if (individualUser.getEmail().equals(email)) {
             throw new IllegalArgumentException("Email already exists");
         }
         individualUser.setEmail(email);
+        return individualUser;
     }
 
     @Transactional
