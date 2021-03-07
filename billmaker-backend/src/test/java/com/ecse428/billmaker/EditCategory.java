@@ -109,7 +109,7 @@ public class EditCategory extends SpringIntegrationTest {
     public void iChooseAnNonExistingCategory() {
         error = "";
         try {
-            categoryRepository.findCategoryByName("efasss")
+            categoryRepository.findCategoryByName("efasss");
         } catch (Exception e) {
             error = "non-existant";
         }

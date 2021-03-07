@@ -1,3 +1,4 @@
+@Sprint3
 Feature: Edit category's name
 
     As an individual user
