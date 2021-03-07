@@ -12,7 +12,14 @@
         <item name="android:layout_marginEnd">10dp</item>
     </style>
 
+
+    <style name="TitleText">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/colorwhite</item>
+    </style>
+
     <dimen name="margin">10dp</dimen>
     <dimen name="marginLarge">20dp</dimen>
     <dimen name="titleTextSize">30sp</dimen>
+    <dimen name="titleTextSizeSmall">18sp</dimen>
 </resources>

@@ -6,4 +6,9 @@
     <string name="login_as_supervisor">Login as Supervisor</string>
     <string name="login_supervisor">Supervisor Login</string>
     <string name="login_user">User Login</string>
+    <string name="Username_label">Username</string>
+    <string name="email_label">Email</string>
+    <string name="monthly_limit">Monthly Limit</string>
+    <string name="save">Save</string>
+
 </resources>
