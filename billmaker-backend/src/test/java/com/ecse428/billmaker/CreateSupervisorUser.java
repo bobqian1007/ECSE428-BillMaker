@@ -31,17 +31,6 @@ public class CreateSupervisorUser extends SpringIntegrationTest{
     String errorMessage = "";
     List<String> usernames = new ArrayList<>();
 
-    @After
-    public void clearDatabase() {
-        errorMessage = "";
-
-        while (usernames.size() != 0) {
-            supervisorUserRepository.delete(supervisorUserRepository.findById(usernames.remove(0)).get());
-        }
-
-
-    }
-
     @When("the username {string} and password {string} and email {string} are entered")
     public void theUsernameAndPasswordAndEmailAreEntered(String name, String password, String email) {
         try {
