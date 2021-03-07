@@ -24,14 +24,18 @@ public class CategoryService {
         }
 
         if (categoryRepository.findCategoryByName(name) == null){
-            throw new IllegalArgumentException("Category does not exists!");
+            throw new IllegalArgumentException("Category does not exist!");
         }
 
         if (categoryRepository.findCategoryByName(name) != null){
             throw new IllegalArgumentException("Category name already exists!");
         }
 
-        Category c = categoryRepository.findCategoryByName(category.getName());
+        if (name == "") {
+            throw new IllegalArgumentException("Name cannot be empty!");
+        }
+
+        Category c = categoryRepository.findCategoryByName(oldName);
         c.setName(name);
         categoryRepository.save(c);
         return c;
