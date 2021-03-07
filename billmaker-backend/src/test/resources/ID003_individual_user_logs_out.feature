@@ -1,3 +1,4 @@
+@Sprint1
 Feature: Individual user logs out
 
 	As a individual user

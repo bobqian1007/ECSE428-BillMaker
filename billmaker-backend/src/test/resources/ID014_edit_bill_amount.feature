@@ -1,3 +1,4 @@
+@Sprint1
 Feature: Edit the amount of the bill
 
 As a individual user,

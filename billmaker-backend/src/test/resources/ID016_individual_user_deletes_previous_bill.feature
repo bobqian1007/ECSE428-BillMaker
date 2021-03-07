@@ -1,3 +1,4 @@
+@Sprint1
 Feature: An individual user delete a previous bill record.
 
   As an individual user, I want to delete a record in the system, so the unwanted records are removed.

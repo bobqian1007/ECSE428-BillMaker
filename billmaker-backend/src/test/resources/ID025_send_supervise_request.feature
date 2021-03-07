@@ -1,3 +1,4 @@
+@Sprint1
 Feature:  Supervisor user sends supervise request to another user
   This feature verifies the functionality that individual user can request to become another individual user's supervisor.
   (As a individual user, I send the request to another individual user, so I can supervise that individual user. )
