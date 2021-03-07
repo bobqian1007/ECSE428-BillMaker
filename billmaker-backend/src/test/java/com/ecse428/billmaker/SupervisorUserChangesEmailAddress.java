@@ -21,13 +21,13 @@ public class SupervisorUserChangesEmailAddress extends SpringIntegrationTest {
     private SupervisorUser supervisorUser;
     private String errorMessage = "";
 
-    @Given("I am a user {string} with password {string} and email {string}")
+    @Given("I have a supervisor account {string} with password {string} and email {string}")
     public void iAmAUserWithPasswordAndEmail(String arg0, String arg1, String arg2) {
         billMakerService.createSupervisorUser(arg0, arg1, arg2);
         supervisorUser = billMakerService.getSupervisorUser(arg0);
     }
 
-    @When("I change the email {string} to the new email address {string}")
+    @When("I change the supervisor email {string} to the new email address {string}")
     public void iChangeTheEmailToTheNewEmailAddress(String arg0, String arg1) {
         try {
             assert supervisorUser.getEmail().equals(arg0);
@@ -42,16 +42,8 @@ public class SupervisorUserChangesEmailAddress extends SpringIntegrationTest {
         }
     }
 
-    @Then("the user email address is now {string}")
-    public void theUserEmailAddressIsNow(String arg0) {
-        try {
-            assert supervisorUser.getEmail().equals(arg0);
-        } catch (Exception e){
-            errorMessage = errorMessage + "Email addresses mismatch";
-        }
-    }
 
-    @Then("the error message {string} is returned for change individual user email address")
+    @Then("the error message {string} is returned for change supervisor user email address")
     public void theErrorMessageIsReturnedForChangeSupervisorUserEmailAddress(String arg0) {
         assertEquals(arg0, errorMessage);
     }

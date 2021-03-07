@@ -21,7 +21,7 @@ public class IndividualUserChangesEmailAddress extends SpringIntegrationTest {
     private IndividualUser individualUser;
     private String errorMessage = "";
 
-    @Given("I am a user {string} with password {string} and email {string}")
+    @Given("I am a individual user {string} with password {string} and email {string}")
     public void iAmAUserWithPasswordAndEmail(String arg0, String arg1, String arg2) {
         billMakerService.createIndividualUser(arg0, arg1, arg2);
         individualUser = billMakerService.getIndividualUser(arg0);
