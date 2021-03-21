@@ -6,6 +6,7 @@ Feature: Supervisor edit the limit of the bill
 
   Background:
     Given I logged in as a supervisor user
+    Given I'm the supervisor of an individual account
 
   Scenario: Edit the supervised account limit to a positive number (Normal Flow)
     When I edit the account limit to a positive number
