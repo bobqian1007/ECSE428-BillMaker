@@ -56,6 +56,26 @@ public class BillMakerService {
     }
 
     @Transactional
+    public IndividualUser updateIndividualUserEmail(String username, String email) {
+        IndividualUser individualUser = individualUserRepository.findByUsername(username);
+        if (individualUser.getEmail().equals(email)) {
+            throw new IllegalArgumentException("Email already exists");
+        }
+        individualUser.setEmail(email);
+        return individualUser;
+    }
+
+    @Transactional
+    public SupervisorUser updateSupervisorUserEmail(String username, String email) {
+        SupervisorUser supervisorUser = supervisorUserRepository.findByUsername(username);
+        if (supervisorUser.getEmail().equals(email)) {
+            throw new IllegalArgumentException("Email already exists");
+        }
+        supervisorUser.setEmail(email);
+        return supervisorUser;
+    }
+
+    @Transactional
     public SupervisorUser createSupervisorUser(String name, String password, String email) {
         if (supervisorUserRepository.findByUsername(name) != null) {
             throw new IllegalArgumentException("Username already exists");
@@ -73,4 +93,5 @@ public class BillMakerService {
     public SupervisorUser getSupervisorUser(String name) {
         return supervisorUserRepository.findByUsername(name);
     }
+
 }

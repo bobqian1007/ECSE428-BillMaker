@@ -1,4 +1,4 @@
-package com.ecse428.billmaker.test;
+package com.ecse428.billmaker;
 
 import com.ecse428.billmaker.BillMakerBackendApplication;
 import com.ecse428.billmaker.dao.SupervisorUserRepository;

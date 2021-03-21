@@ -2,6 +2,7 @@ package com.ecse428.billmaker;
 
 import com.ecse428.billmaker.dao.ExpenseRepository;
 import com.ecse428.billmaker.dao.IndividualUserRepository;
+import com.ecse428.billmaker.dao.SupervisorUserRepository;
 import com.ecse428.billmaker.model.Category;
 import com.ecse428.billmaker.model.Expense;
 import com.ecse428.billmaker.service.BillMakerService;
@@ -36,6 +37,9 @@ public class DeletePreviousBill extends SpringIntegrationTest{
     @Autowired
     private IndividualUserRepository individualUserRepository;
 
+    @Autowired
+    private SupervisorUserRepository supervisorUserRepository;
+
     @Deprecated
     private Date date = new Date(121, 1, 12);
     private String errorMessage = "";
@@ -45,9 +49,10 @@ public class DeletePreviousBill extends SpringIntegrationTest{
     public void clearDatabase() {
         errorMessage = "";
         individualUserRepository.deleteAll();
+        supervisorUserRepository.deleteAll();
         expenseRepository.deleteAll();
     }
-
+	
     @Given("I logged in as an individual user")
     public void iLoggedInAsAnIndividualUser() {
         billMakerService.createIndividualUser("Alex", "abc", "Alex@gmail.com");
