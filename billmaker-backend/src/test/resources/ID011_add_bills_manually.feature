@@ -1,3 +1,4 @@
+@Sprint1
 Feature: add bills manually
 
   @normalAddBillsManually

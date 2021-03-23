@@ -21,10 +21,9 @@ public class IndividualUserChangesEmailAddress extends SpringIntegrationTest {
     private IndividualUser individualUser;
     private String errorMessage = "";
 
-    @Given("I am a user {string} with password {string} and email {string}")
+    @Given("I am a individual user {string} with password {string} and email {string}")
     public void iAmAUserWithPasswordAndEmail(String arg0, String arg1, String arg2) {
-        billMakerService.createIndividualUser(arg0, arg1, arg2);
-        individualUser = billMakerService.getIndividualUser(arg0);
+        individualUser = billMakerService.createIndividualUser(arg0, arg1, arg2);
     }
 
     @When("I change the email {string} to the new email address {string}")
@@ -36,7 +35,7 @@ public class IndividualUserChangesEmailAddress extends SpringIntegrationTest {
             System.out.println(errorMessage);
         }
         try {
-            billMakerService.updateIndividualUserEmail(individualUser.getUsername(), arg1);
+            individualUser = billMakerService.updateIndividualUserEmail(individualUser.getUsername(), arg1);
         } catch (IllegalArgumentException e) {
             errorMessage = e.getMessage();
         }

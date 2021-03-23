@@ -1,3 +1,4 @@
+@Sprint1
 Feature: Individual User Login
 
   As a individual user

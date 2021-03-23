@@ -52,6 +52,11 @@ public class UserChgPwdTestStepDef extends SpringIntegrationTest {
         testUser = service.createIndividualUser(user, password, email);
     }
 
+    @Given("I have a supervisor user {string} with password {string} and email {string}")
+    public void givenIhaveaSupervisorUser(String user, String password, String email) {
+        testUser = service.createIndividualUser(user, password, email);
+    }
+
     @When("I change the old password {string} to a new password {string}")
     public void ichangetheoldpwd(String oldpwd, String newpwd) {
         testUser.setPassword(newpwd);
@@ -60,6 +65,11 @@ public class UserChgPwdTestStepDef extends SpringIntegrationTest {
 
     @Then("the user password is now {string}")
     public void thenTheUserPasswordIsNow(String pwd) {
+        assertEquals(pwd,testUser.getPassword());
+    }
+
+    @Then("the supervisor user password is now {string}")
+    public void thenTheSupervisorUserPasswordIsNow(String pwd) {
         assertEquals(pwd,testUser.getPassword());
     }
 
