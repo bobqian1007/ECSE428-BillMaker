@@ -7,11 +7,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ecse428.billmaker.dao.IndividualUserRepository;
+import com.ecse428.billmaker.dao.SupervisionRequestRepository;
+import com.ecse428.billmaker.dao.SupervisorUserRepository;
 import com.ecse428.billmaker.dao.UserDao;
 import com.ecse428.billmaker.model.IndividualUser;
+import com.ecse428.billmaker.model.SupervisionRequest;
+import com.ecse428.billmaker.model.SupervisorUser;
 import com.ecse428.billmaker.model.myUser;
 import com.ecse428.billmaker.model.myUser;
-
+import java.security.InvalidParameterException;
 
 @Service
 public class UserService {
@@ -21,6 +25,10 @@ public class UserService {
     UserDao dao;
     @Autowired
     private IndividualUserRepository idr;
+    @Autowired
+    private SupervisorUserRepository svr;
+    @Autowired
+    private SupervisionRequestRepository srr;
     @Transactional
     public List<myUser> selectMany() {
         return dao.selectMany();
@@ -33,6 +41,25 @@ public class UserService {
     	idr.save(user);
     	return user;
     }
+    @Transactional
+    public IndividualUser SupervisorRemoveLimit(String supervisorName,String name) {
+    	SupervisorUser suser = svr.findByUsername(supervisorName);
+    	IndividualUser user = idr.findByUsername(name);
+    	for (SupervisionRequest sr:suser.getSupervisionRequests()) {
+    		if (sr.getIndividualUser() == user) {
+    			return removeMonthLimit(name);
+    		}
+    	}
+    	throw new InvalidParameterException("this is not your supervisee");
+    }
+    @Transactional
+    public void createSupervisionRequest(String sn, String name) {
+    	SupervisionRequest sr = new SupervisionRequest();
+    	sr.setSupervisorUser(svr.findByUsername(sn));
+    	sr.setIndividualUser(idr.findByUsername(name));
+    	srr.save(sr);
+    }
+    	
     @Transactional
     public void editMonthLimit(String name, double limit) {
     	//if (limit != 0) {

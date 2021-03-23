@@ -1,4 +1,3 @@
-@Sprint3
 Feature: supervisor remove limit
 
   As an supervisor user,
@@ -13,10 +12,10 @@ Feature: supervisor remove limit
     Given my supervisee have account limit
     When I remove his/her account limit
     And I request for his/her account limit
-    Then The account limit should be infinity
+    Then his/her account limit should be infinity
 
   Scenario: Edit the account limit to zero (Alternate Flow)
     Given my supervisee do not have account limit
     When I remove his/her account limit
     And I request for his/her account limit
-    Then The account limit should be infinity
+    Then his/her account limit should be infinity

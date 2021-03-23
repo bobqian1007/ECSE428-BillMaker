@@ -75,6 +75,11 @@ public class BillMakerController {
         }
     	return convertToDto(user);
     }
+    @GetMapping(value = {"/supervisor/page/{username}/remove/{supervisee}", "/supervisor/page/{username}/remove/{supervisee}/"})
+    public IndividualUserDto SupervisorRemoveLimit(@PathVariable("username") String username,@PathVariable("supervisee") String supervisee) {
+    	IndividualUser idr = userService.SupervisorRemoveLimit(username, supervisee);
+        return convertToDto(idr);
+    }
 
     /**
      * User Login Related
