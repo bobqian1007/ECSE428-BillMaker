@@ -1,3 +1,4 @@
+@Sprint2
 Feature: Individual User changes email address
 
   As a individual user

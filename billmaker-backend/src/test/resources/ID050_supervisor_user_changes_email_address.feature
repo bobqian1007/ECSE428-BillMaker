@@ -1,3 +1,4 @@
+@Sprint2
 Feature: Supervisor changes email address
 
   As a supervisor

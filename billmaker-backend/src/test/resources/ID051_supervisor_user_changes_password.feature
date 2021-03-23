@@ -1,3 +1,4 @@
+@Sprint2
 Feature: Supervisor User changes password
 
   As a supervisor user

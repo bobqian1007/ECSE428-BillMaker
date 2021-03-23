@@ -1,3 +1,4 @@
+@Sprint2
 Feature: Individual User changes password
 
   As a individual user

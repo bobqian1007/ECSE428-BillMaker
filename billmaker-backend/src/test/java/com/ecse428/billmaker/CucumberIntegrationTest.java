@@ -6,6 +6,6 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources",
-        tags = "not @Sprint3")
+        tags = "not @Sprint3 and not @Sprint1")
 public class CucumberIntegrationTest {
 }
