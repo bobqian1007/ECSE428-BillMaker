@@ -1,5 +1,7 @@
 package com.ecse428.billmaker.service;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -55,8 +57,16 @@ public class UserService {
     @Transactional
     public void createSupervisionRequest(String sn, String name) {
     	SupervisionRequest sr = new SupervisionRequest();
+    	sr.setStatus(true);
     	sr.setSupervisorUser(svr.findByUsername(sn));
     	sr.setIndividualUser(idr.findByUsername(name));
+    	SupervisorUser suser = svr.findByUsername(sn);
+    	IndividualUser user = idr.findByUsername(name);
+    	Set<SupervisionRequest> newRequests = new HashSet();
+        newRequests.add(sr);
+        suser.setSupervisionRequests(newRequests);
+        user.setSupervisionRequests(newRequests);
+    	
     	srr.save(sr);
     }
     	
@@ -66,9 +76,6 @@ public class UserService {
     		IndividualUser user = idr.findByUsername(name);
     		user.setMonthlyLimit(limit);
     		idr.save(user); 
-    	//}else {
-    	//	removeMonthLimit(name);
-    	//} 	
     }
     @Transactional
     public double getMonthLimit(String name) {

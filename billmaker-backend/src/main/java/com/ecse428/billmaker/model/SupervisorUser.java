@@ -1,6 +1,9 @@
 package com.ecse428.billmaker.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+
 import java.util.Set;
 import javax.persistence.OneToMany;
 
@@ -8,7 +11,7 @@ import javax.persistence.OneToMany;
 public class SupervisorUser extends User{
    private Set<SupervisionRequest> supervisionRequests;
    
-   @OneToMany(mappedBy="supervisorUser" )
+   @OneToMany(mappedBy="supervisorUser",fetch = FetchType.EAGER, cascade={CascadeType.ALL})
    public Set<SupervisionRequest> getSupervisionRequests() {
       return this.supervisionRequests;
    }
