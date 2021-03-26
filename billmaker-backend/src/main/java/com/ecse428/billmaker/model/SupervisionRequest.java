@@ -1,6 +1,8 @@
 package com.ecse428.billmaker.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.ManyToOne;
 import javax.persistence.Id;
 
@@ -42,6 +44,7 @@ public void setId(int value) {
     this.id = value;
 }
 @Id
+@GeneratedValue(strategy=GenerationType.AUTO)
 public int getId() {
     return this.id;
 }
