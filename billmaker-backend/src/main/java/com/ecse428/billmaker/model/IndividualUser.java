@@ -1,6 +1,8 @@
 package com.ecse428.billmaker.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+
 import java.util.Set;
 import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
@@ -28,7 +30,7 @@ public double getMonthlyLimit() {
    
    private Set<Transaction> transactions;
    
-   @OneToMany(mappedBy="individualUser" , cascade={CascadeType.ALL})
+   @OneToMany(mappedBy="individualUser" ,fetch = FetchType.EAGER, cascade={CascadeType.ALL})
    public Set<Transaction> getTransactions() {
       return this.transactions;
    }

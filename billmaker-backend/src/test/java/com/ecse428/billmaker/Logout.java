@@ -2,6 +2,7 @@ package com.ecse428.billmaker;
 
 import com.ecse428.billmaker.dao.SupervisorUserRepository;
 import com.ecse428.billmaker.model.SupervisorUser;
+import com.ecse428.billmaker.model.User;
 import com.ecse428.billmaker.service.BillMakerService;
 import io.cucumber.java.After;
 import io.cucumber.java.en.And;
@@ -21,7 +22,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 
-public class CreateSupervisorUserTests extends SpringIntegrationTest{
+public class Logout extends SpringIntegrationTest{
     @Autowired
     private BillMakerService service;
 
@@ -42,39 +43,43 @@ public class CreateSupervisorUserTests extends SpringIntegrationTest{
 
     }
 
-    @When("the username {string} and password {string} and email {string} are entered")
-    public void theUsernameAndPasswordAndEmailAreEntered(String name, String password, String email) {
+    @Given("I am logged into the Bill Management System as an individual user")
+    public void IAmLoggedIntoTheBillManagementSystemAsAnIndividualUser() {
         try {
-            service.createSupervisorUser(name, password, email);
-            usernames.add(name);
+            BillMakerService.login();
         } catch (IllegalArgumentException e) {
             errorMessage = e.getMessage();
         }
     }
 
-    @Then("a supervisor account is created with username {string} and password {string} and email {string}")
-    public void aSupervisorAccountIsCreatedWithUsernameAndPasswordAndEmail(String name, String password, String email) {
+    @When("I log out")
+    public void ILogOut(){
+        try {
+            BillMakerService.logout();
+        } catch (IllegalStateException e) {
+            errorMessage = e.getMessage();
+        }
+    }
+
+    @Then("I can no longer access my account")
+    public void ICanNoLongerAccessMyAccount() {
         assertEquals("", errorMessage);
 
-        SupervisorUser temp = service.getSupervisorUser(name);
-        assertEquals(name, temp.getUsername());
-        assertEquals(password, temp.getPassword());
-        assertEquals(email, temp.getEmail());
+        assertEquals(false, BillMakerService.getUser());
     }
 
-    @Given("a supervisor user has been created with username {string} and password {string} and email {string}")
-    public void aSupervisorUserHasBeenCreatedWithUsernameAndPasswordAndEmail(String name, String password, String email) {
+    @Given("I am not logged into the Bill Management System")
+    public void IAmNotLoggedIntoTheBillManagementSystem() {
         try {
-            service.createSupervisorUser(name, password, email);
-            usernames.add(name);
-        } catch (IllegalArgumentException e) {
+            BillMakerService.logout();
+        } catch (IllegalStateException e) {
             errorMessage = e.getMessage();
         }
     }
 
-    @Then("the error message {string} is returned")
-    public void theErrorMessageIsReturned(String error) {
-        assertEquals(error, errorMessage);
+    @Then("the system will display the {string} error message")
+    public void theSystemWillDisplayTheErrorMessage(String error) {
+        assertEquals(errorMessage, error);
     }
 
 }

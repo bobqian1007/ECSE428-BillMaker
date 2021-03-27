@@ -1,3 +1,4 @@
+@Sprint1
 Feature: Create Individual User
 
   As an individual user
