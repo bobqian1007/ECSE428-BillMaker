@@ -43,7 +43,6 @@ public class EditCategory extends SpringIntegrationTest {
     public void iAmLoggedInAsAnIndividualUser() {
         try {
             billMakerService.createIndividualUser("Jasper", "jeianw748", "Jasper@gmail.com");
-            Set<Category> categories = new HashSet<Category>();
         } catch (Exception e) {
             error = e.getMessage();
         }
@@ -109,9 +108,9 @@ public class EditCategory extends SpringIntegrationTest {
     public void iChooseAnNonExistingCategory() {
         error = "";
         try {
-            categoryRepository.findCategoryByName("efasss")
+            categoryRepository.findCategoryByName("efasss");
         } catch (Exception e) {
-            error = "non-existant";
+            error += e.getMessage();
         }
     }
 
@@ -126,7 +125,7 @@ public class EditCategory extends SpringIntegrationTest {
 
     @Then("the {string} error message appears")
     public void theErrorMessageAppears(String shownError){
-        assertEquals("non-existant" + shownError, error);
+        assertEquals(shownError, error);
     }
 
     @And("I edit its name to an existing category's name")
