@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,8 +35,12 @@ public class UserService {
     @Transactional
     public List<myUser> selectMany() {
         return dao.selectMany();
-
     }
+    @Transactional
+    public boolean deleteAccount(String username, String password) throws DataAccessException {
+        return dao.deleteAccount(username,password);
+    }
+
     @Transactional
     public IndividualUser removeMonthLimit(String name) {
     	IndividualUser user = idr.findByUsername(name);
@@ -89,6 +94,12 @@ public class UserService {
         user.setPassword(password);
         return user;
     }
-    
+
+    @Transactional
+    public IndividualUser deleteUser(String username, String password) {
+        IndividualUser user = idr.findByUsername(username);
+        user.setUsername("deleted");
+        return user;
+    }
 
 }

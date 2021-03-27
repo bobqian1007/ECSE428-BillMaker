@@ -8,5 +8,5 @@ import org.springframework.dao.DataAccessException;
 
 public interface UserDao {
     public List<myUser> selectMany() throws DataAccessException;
-
+    public boolean deleteAccount(String username, String password);
 }

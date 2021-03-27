@@ -35,5 +35,11 @@ public class UserDaoJdbcImpl implements UserDao {
         return userList;
     }
 
+    @Override
+    public boolean deleteAccount(String username, String password) throws DataAccessException {
+        jdbc.queryForList("DELETE FROM bill_user WHERE username='"+username+"'");
+        return true;
+    }
+
 
 }
