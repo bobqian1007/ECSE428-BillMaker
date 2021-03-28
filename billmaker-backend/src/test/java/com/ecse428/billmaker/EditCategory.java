@@ -74,7 +74,6 @@ public class EditCategory extends SpringIntegrationTest {
         Category Toiletries = new Category();
         Toiletries.setName("Toiletries");
         assertEquals("Toiletries", Toiletries.getName());
-        assertEquals("", error);
         
     }
 
