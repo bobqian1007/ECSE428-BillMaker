@@ -23,7 +23,7 @@ public class CategoryService {
             return categoryRepository.findCategoryByName(name);
         }
 
-        if (categoryRepository.findCategoryByName(name) == null){
+        if (categoryRepository.findCategoryByName(oldName) == null){
             throw new IllegalArgumentException("Category does not exist!");
         }
 
