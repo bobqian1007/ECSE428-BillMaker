@@ -40,4 +40,53 @@ public class CategoryService {
         categoryRepository.save(c);
         return c;
     }
+
+    @Transactional
+    public Category createCategory(String name) {
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be empty!");
+        }
+        else if (categoryRepository.findCategoryByName(name) != null) {
+            throw new IllegalArgumentException("Category name already exists!");
+        }
+        Category category = new Category();
+        category.setName(name);
+        categoryRepository.save(category);
+        return category;
+    }
+
+    @Transactional
+    public void removeCategory(String name) {
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be empty!");
+        }
+        else if (categoryRepository.findCategoryByName(name) == null){
+            throw new IllegalArgumentException("Category does not exist!");
+        }
+        else if (name == "") {
+            throw new IllegalArgumentException("Name cannot be empty!");
+        }
+
+        Category category = categoryRepository.findCategoryByName(name);
+        categoryRepository.delete(category);
+    }
+
+    private <T> List<T> toList(Iterable<T> iterable) {
+        List<T> resultList = new ArrayList<T>();
+        for (T t : iterable) {
+            resultList.add(t);
+        }
+        return resultList;
+    }
+
+    @Transactional
+    public List<Category> getAllCategories() {
+        return toList(categoryRepository.findAll());
+    }
+
+    @Transactional
+    public Category getCategoriesByName(String name) {
+        Category category = categoryRepository.findCategoryByName(name);
+        return category;
+    }
 }
