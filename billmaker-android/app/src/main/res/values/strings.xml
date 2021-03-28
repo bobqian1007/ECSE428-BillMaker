@@ -10,5 +10,6 @@
     <string name="email_label">Email</string>
     <string name="monthly_limit">Monthly Limit</string>
     <string name="save">Save</string>
+    <string name="delete_account"> Delete Account</string>
 
 </resources>
