@@ -1,5 +1,6 @@
 package com.ecse428.billmaker;
 
+import com.ecse428.billmaker.dao.CategoryRepository;
 import com.ecse428.billmaker.dao.ExpenseRepository;
 import com.ecse428.billmaker.dao.IndividualUserRepository;
 import com.ecse428.billmaker.dao.SupervisorUserRepository;
@@ -35,6 +36,9 @@ public class DeletePreviousBill extends SpringIntegrationTest{
     private ExpenseRepository expenseRepository;
 
     @Autowired
+    private CategoryRepository categoryRepository;
+
+    @Autowired
     private IndividualUserRepository individualUserRepository;
 
     @Autowired
@@ -51,6 +55,7 @@ public class DeletePreviousBill extends SpringIntegrationTest{
         individualUserRepository.deleteAll();
         supervisorUserRepository.deleteAll();
         expenseRepository.deleteAll();
+        categoryRepository.deleteAll();
     }
 	
     @Given("I logged in as an individual user")
