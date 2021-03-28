@@ -4,7 +4,7 @@ Feature: An individual user adds a new category.
   As an individual user, I want to add a new category, so that I can put related things into this category.
 
   Background:
-    Given I am an individual user
+    Given I am sign in an individual user
 
   Scenario: Add a category with the category name in string (Normal Flow)
     When I add a new category with a name in string

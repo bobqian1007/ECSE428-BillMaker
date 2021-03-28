@@ -51,6 +51,15 @@ public class ID019_Individual_User_Removes_Category extends SpringIntegrationTes
         }
     }
 
+    @When("I remove a category by specifying a name in number")
+    public void removeCategoryNumber() {
+        try {
+            categoryService.removeCategory("12");
+        } catch (IllegalArgumentException e) {
+            errorMessage = e.getMessage();
+        }
+
+    }
 
     @When("I remove a category without specifying a name")
     public void iRemoveACategoryWithoutAName() {

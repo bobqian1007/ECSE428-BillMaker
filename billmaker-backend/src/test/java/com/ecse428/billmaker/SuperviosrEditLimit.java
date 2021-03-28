@@ -51,6 +51,12 @@ public class SuperviosrEditLimit {
         assertEquals(java.util.Optional.of(expectLimit), java.util.Optional.of(limit));
     }
 
+    @Then("The supervised account limit should match with the value 0 we set")
+    public void the_supervised_account_limit_should_match_with_the_value0_we_set() {
+        double expectLimit = 0;
+        assertEquals(java.util.Optional.of(expectLimit), java.util.Optional.of(limit));
+    }
+
     @When("I edit the supervised account limit to zero")
     public void i_edit_the_supervised_account_limit_to_zero() {
         individualUser.setMonthlyLimit(0);

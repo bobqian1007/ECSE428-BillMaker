@@ -17,7 +17,7 @@ Feature: Supervisor edit the limit of the bill
   Scenario: Edit the supervised account limit to zero (Alternate Flow)
     When I edit the supervised account limit to zero
     And I request for the supervised account limit
-    Then The supervised account limit should match with the value we set
+    Then The supervised account limit should match with the value 0 we set
 
   Scenario: Edit the supervised account limit to a negative number(Error Flow)
     When I edit the supervised account limit to zero

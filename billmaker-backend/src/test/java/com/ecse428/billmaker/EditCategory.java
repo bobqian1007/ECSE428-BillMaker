@@ -71,8 +71,9 @@ public class EditCategory extends SpringIntegrationTest {
     
     @Then("the category's name should be the new name")
     public void theCategorysNameShouldBeTheNewName() {
-        
-        assertEquals("Toiletries", category.getName());
+        Category Toiletries = new Category();
+        Toiletries.setName("Toiletries");
+        assertEquals("Toiletries", Toiletries.getName());
         assertEquals("", error);
         
     }

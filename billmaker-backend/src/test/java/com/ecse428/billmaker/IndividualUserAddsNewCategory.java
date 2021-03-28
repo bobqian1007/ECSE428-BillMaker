@@ -27,7 +27,7 @@ public class IndividualUserAddsNewCategory extends SpringIntegrationTest{
     private List<Category> categories;
     private String errorMessage = "";
 
-    @Given("I am an individual user")
+    @Given("I am sign in an individual user")
     public void iAmAnIndividualUser() {
         individualUser = billMakerService.createIndividualUser("Alex","abc","Alex@gmail.com");
     }
