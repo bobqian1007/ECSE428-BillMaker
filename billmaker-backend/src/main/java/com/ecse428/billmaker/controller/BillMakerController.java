@@ -111,6 +111,15 @@ public class BillMakerController {
         return convertToDto(user);
     }
 
+    @PostMapping("/user/delete")
+    public boolean deleteUser(String username, String password) {
+        try {
+            return userService.deleteAccount(username, password);
+        }catch(Exception e) {
+            return false;
+        }
+    }
+
     @Autowired
     CategoryService categoryService;
 

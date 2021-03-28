@@ -8,6 +8,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ecse428.billmaker.dao.IndividualUserRepository;
+import com.ecse428.billmaker.dao.SupervisionRequestRepository;
+import com.ecse428.billmaker.dao.SupervisorUserRepository;
 import com.ecse428.billmaker.service.BillMakerService;
 import com.ecse428.billmaker.service.UserService;
 
@@ -26,6 +28,12 @@ public class RemoveLimit extends SpringIntegrationTest {
 	 @Autowired
 	 IndividualUserRepository userRepository;
 	 
+	 @Autowired
+	 SupervisorUserRepository sRepository;
+	 
+	 @Autowired
+	 SupervisionRequestRepository srr;
+	 
 	 String errorMessage = "";
 	 double result;
 	 List<String> usernamesTest = new ArrayList<>();
@@ -34,11 +42,14 @@ public class RemoveLimit extends SpringIntegrationTest {
 	 @After
 	 public void clearDatabase() {
 		 errorMessage = "";
-
-		 while (usernamesTest.size() != 0) {
+		 
+		 /*while (usernamesTest.size() != 0) {
 			 System.out.println("I delete it");
 	         userRepository.delete(userRepository.findById(usernamesTest.remove(0)).get());
-	     }
+	     }*/
+		 srr.deleteAll();
+		 userRepository.deleteAll();
+		 sRepository.deleteAll();
 
 
 	 }

@@ -17,7 +17,7 @@ Feature: Individual User deletes account
 
   Scenario Outline: Non-existing User deletes account (Error Flow)
 
-    Given I don't have a user "<UserID>" with password "<PreviousPassword>" and email "<Email>"
+    Given I have a user "<UserID>" with password "<PreviousPassword>" and email "<Email>"
     When I delete the user "<UserID>" with password "<Password>" and email "<Email>"
     Then the user "<UserID>" does not exist in the system
     Examples:

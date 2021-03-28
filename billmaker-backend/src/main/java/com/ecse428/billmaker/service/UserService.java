@@ -1,8 +1,11 @@
 package com.ecse428.billmaker.service;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,8 +35,12 @@ public class UserService {
     @Transactional
     public List<myUser> selectMany() {
         return dao.selectMany();
-
     }
+    @Transactional
+    public boolean deleteAccount(String username, String password) throws DataAccessException {
+        return dao.deleteAccount(username,password);
+    }
+
     @Transactional
     public IndividualUser removeMonthLimit(String name) {
     	IndividualUser user = idr.findByUsername(name);
@@ -55,8 +62,16 @@ public class UserService {
     @Transactional
     public void createSupervisionRequest(String sn, String name) {
     	SupervisionRequest sr = new SupervisionRequest();
+    	sr.setStatus(true);
     	sr.setSupervisorUser(svr.findByUsername(sn));
     	sr.setIndividualUser(idr.findByUsername(name));
+    	SupervisorUser suser = svr.findByUsername(sn);
+    	IndividualUser user = idr.findByUsername(name);
+    	Set<SupervisionRequest> newRequests = new HashSet();
+        newRequests.add(sr);
+        suser.setSupervisionRequests(newRequests);
+        user.setSupervisionRequests(newRequests);
+    	
     	srr.save(sr);
     }
     	
@@ -66,9 +81,6 @@ public class UserService {
     		IndividualUser user = idr.findByUsername(name);
     		user.setMonthlyLimit(limit);
     		idr.save(user); 
-    	//}else {
-    	//	removeMonthLimit(name);
-    	//} 	
     }
     @Transactional
     public double getMonthLimit(String name) {
@@ -82,6 +94,12 @@ public class UserService {
         user.setPassword(password);
         return user;
     }
-    
+
+    @Transactional
+    public IndividualUser deleteUser(String username, String password) {
+        IndividualUser user = idr.findByUsername(username);
+        user.setUsername("deleted");
+        return user;
+    }
 
 }
